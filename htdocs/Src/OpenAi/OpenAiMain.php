@@ -23,8 +23,12 @@ class OpenAiMain
         return $openAiConnection->getConnection();
     }
 
-    public function getChatMessages($temperature = 0, $maxTokens = 100, $completeResponse = false)
-    {
+    public function getChatMessages(
+        $temperature = 0,
+        $maxTokens = 100,
+        $completeResponse = false,
+        $json = true
+    ) {
         $this->chat = $this->connection->chat([
             'model' => $this->model,
             'messages' => [
@@ -52,15 +56,24 @@ class OpenAiMain
         ]);
 
         // decode response
-        $decodedMessages = json_decode($this->chat);
-
+        $response = $this->chat;
+        
         if ($completeResponse) {
-            return $decodedMessages;
+            if ($json) {
+                return $response;
+            }
+            
+            return json_decode($response);
         }
 
         // Get Content
-        $content = $decodedMessages->choices[0]->message->content;
+        $decodedResponse = json_decode($response);
+        $message = $decodedResponse->choices[0]->message;
 
-        return $content;
+        if ($json) {
+            return json_encode($message);
+        }
+
+        return $message;
     }
 }
