@@ -1,9 +1,3 @@
-<?php
-require_once '../Src/Bootstrap.php';
-
-$messages = $chat->getChatMessages();
-?>
-
 <html lang="en">
 
 <head>
@@ -15,9 +9,6 @@ $messages = $chat->getChatMessages();
 
 <body>
     <main>
-
-        <pre><?php print_r($messages) ?></pre>
-
         <div id="messages" class="messages">
             <ul class="messages__list">
                 <li class="messages__item messages__item--user">
@@ -30,7 +21,7 @@ $messages = $chat->getChatMessages();
         </div>
         <div id="chat" class="chat">
             <form action="#" method="post">
-                <textarea name="message_user" id="message_user" cols="30" rows="10" placeholder="Write message to assistant...">Who won the world series in 2020?</textarea>
+                <textarea name="messageFromUser" id="messageFromUser" cols="30" rows="10" placeholder="Write message to assistant...">Who won the world series in 2020?</textarea>
                 <br>
                 <input type="submit" value="submit">
             </form>
