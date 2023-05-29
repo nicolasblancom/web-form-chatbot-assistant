@@ -10,7 +10,7 @@ form.addEventListener("submit", event => {
 
     messageInput.value = "";
     updateContextToAppend('user', messageText);
-    sendMessage(messageText); // TODO send context instead of user message
+    sendMessage(contextAppend);
 });
 
 function updateContextToAppend(role, message) {
@@ -18,12 +18,14 @@ function updateContextToAppend(role, message) {
         "role": role,
         "content": message
     });
+
+    // TODO: remove console log
     console.log(contextAppend);
 }
 
-function sendMessage(messageFromUser) {
+function sendMessage(contextAppend) {
     var formData = new FormData();
-    formData.append('messageFromUser', messageFromUser);
+    formData.append('contextAppend', JSON.stringify(contextAppend));
     
     fetch('/processMessage.php', {
         method: 'POST',
@@ -31,6 +33,8 @@ function sendMessage(messageFromUser) {
     })
     .then(response => response.json())
     .then(res => {
+        // TODO: remove console log
+        // console.log(res);
         updateContextToAppend(res.role, res.content);
         
         // TODO: feedback en pantalla

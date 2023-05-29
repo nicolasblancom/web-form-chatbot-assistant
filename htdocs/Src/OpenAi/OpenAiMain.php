@@ -44,7 +44,9 @@ class OpenAiMain
             "content" => "How can I help you?"
         ];
 
-        $messagesContext[] = $contextAppend;
+        foreach ($contextAppend as $contextAppendItem) {
+            $messagesContext[] = $contextAppendItem;
+        }
 
         $this->chat = $this->connection->chat([
             'model' => $this->model,
