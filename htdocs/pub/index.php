@@ -20,7 +20,7 @@
             </ul>
         </div>
         <div id="chat" class="chat">
-            <form action="#" method="post">
+            <form action="#" method="post" id="messageForm">
                 <textarea name="messageFromUser" id="messageFromUser" cols="30" rows="10" placeholder="Write message to assistant...">Who won the world series in 2020?</textarea>
                 <br>
                 <input type="submit" value="submit">
