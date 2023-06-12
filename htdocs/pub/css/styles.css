@@ -1,0 +1,97 @@
+/* resets */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    margin-bottom: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+textarea {
+    padding: 10px;
+    font-family: inherit;
+    resize: none;
+    border-style: none;
+}
+
+/* main styles */
+
+/*-- container */
+.main-container {
+    display: grid;
+    grid-template-rows: 1fr 150px;
+    gap: 15px;
+    height: 100vh;
+    padding: 15px;
+}
+
+/*-- messages list */
+.messages {}
+
+.messages__item {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 40px 1fr;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid gray;
+    background-color: #f0f0f0;
+    box-shadow: 0px 0px 4px #dadada;
+}
+
+.messages__item--assistant {
+    background-color: #fefedf;
+}
+
+.messages__item:before {
+    content: '.';
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages__item--user:before {
+    content: 'You'
+}
+
+.messages__item--assistant:before {
+    content: 'Bot'
+}
+
+/*-- chat input section */
+.chat {}
+
+.messages-form {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    align-items: end;
+    gap: 5px;
+    height: 100%;
+}
+
+.messages-form__input {
+    align-self: stretch;
+    box-shadow: 0px 0px 4px #dadada;
+}

@@ -9,25 +9,22 @@
 
 <body>
     <main>
-        <div id="messages" class="messages">
-            <ul class="messages__list">
-                <li class="messages__item messages__item--user">
-                    <span class="meessages__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni inventore quisquam mollitia? Ea cum quod nemo! Temporibus, placeat nulla iure aperiam hic quibusdam ipsum nobis qui, perspiciatis cumque corporis nihil.</span>
-                </li>
-                <li class="messages__item messages__item--assistant">
-                    <span class="messages__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni inventore quisquam mollitia? Ea cum quod nemo! Temporibus, placeat nulla iure aperiam hic quibusdam ipsum nobis qui, perspiciatis cumque corporis nihil.</span>
-                </li>
-            </ul>
+        <div id="main-container" class="main-container">
+            <div id="messages" class="messages">
+                <ul class="messages__list">
+                    <!-- JS generated content -->
+                </ul>
+            </div>
+            <div id="chat" class="chat">
+                <form action="#" method="post" id="messageForm" class="messages-form">
+                    <textarea name="messageFromUser" id="messageFromUser" class="messages-form__input" placeholder="Write message to assistant..."></textarea>
+                    <input type="submit" value="submit" class="messages-form__submit">
+                </form>
+            </div>
         </div>
-        <div id="chat" class="chat">
-            <form action="#" method="post" id="messageForm">
-                <textarea name="messageFromUser" id="messageFromUser" cols="30" rows="10" placeholder="Write message to assistant...">Who won the world series in 2020?</textarea>
-                <br>
-                <input type="submit" value="submit">
-            </form>
-        </div>
-        
+
         <script src="/js/submitUserMessage.js"></script>
+        <link rel="stylesheet" href="/css/styles.css">
     </main>
 </body>
 
