@@ -28,9 +28,6 @@ function updateContextToAppend(role, message) {
         "role": role,
         "content": message
     });
-
-    // TODO: remove console log
-    console.log(contextAppend);
 }
 
 function sendMessage(contextAppend) {
@@ -43,8 +40,6 @@ function sendMessage(contextAppend) {
     })
         .then(response => response.json())
         .then(res => {
-            // TODO: remove console log
-            // console.log(res);
             updateContextToAppend(res.role, res.content);
             appendMessageToUi(res.role, res.content);
         })
