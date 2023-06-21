@@ -2,17 +2,19 @@ const form = document.querySelector('#messageForm');
 const messageInput = document.querySelector('#messageFromUser');
 const contextAppend = [];
 
-form.addEventListener("submit", event => {
-    event.preventDefault();
-
-    const messageText = messageInput.value;
-    if (!messageText) return;
-
-    messageInput.value = "";
-    updateContextToAppend('user', messageText);
-    appendMessageToUi('user', messageText);
-    sendMessage(contextAppend);
-});
+function handleFormSubmitEvent() {
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+    
+        const messageText = messageInput.value;
+        if (!messageText) return;
+    
+        messageInput.value = "";
+        updateContextToAppend('user', messageText);
+        appendMessageToUi('user', messageText);
+        sendMessage(contextAppend);
+    });
+}
 
 function appendMessageToUi(role, message) {
     const messagesList = document.querySelector('.messages__list');
@@ -45,3 +47,9 @@ function sendMessage(contextAppend) {
         })
         .catch(err => console.log('Solicitud fallida', err));
 }
+
+function init () {
+    handleFormSubmitEvent();
+}
+
+init();
