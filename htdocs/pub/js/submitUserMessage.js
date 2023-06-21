@@ -5,14 +5,25 @@ const contextAppend = [];
 function handleFormSubmitEvent() {
     form.addEventListener("submit", event => {
         event.preventDefault();
-    
-        const messageText = messageInput.value;
-        if (!messageText) return;
-    
-        messageInput.value = "";
-        updateContextToAppend('user', messageText);
-        appendMessageToUi('user', messageText);
-        sendMessage(contextAppend);
+        submitForm();
+    });
+}
+
+function submitForm() {
+    const messageText = messageInput.value;
+    if (!messageText) return;
+
+    messageInput.value = "";
+    updateContextToAppend('user', messageText);
+    appendMessageToUi('user', messageText);
+    sendMessage(contextAppend);
+}
+
+function handleFormSubmitOnEnter() {
+    messageInput.addEventListener('keydown', event => {
+        if(event.key === 'Enter') {
+            submitForm();
+        }
     });
 }
 
@@ -50,6 +61,7 @@ function sendMessage(contextAppend) {
 
 function init () {
     handleFormSubmitEvent();
+    handleFormSubmitOnEnter();
 }
 
 init();
