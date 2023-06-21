@@ -18,7 +18,7 @@
             <div id="chat" class="chat">
                 <form action="#" method="post" id="messageForm" class="messages-form">
                     <textarea name="messageFromUser" id="messageFromUser" class="messages-form__input" placeholder="Write message to assistant..."></textarea>
-                    <input type="submit" value="submit" class="messages-form__submit">
+                    <button type="submit" class="messages-form__submit"><span class="messages-form__submit-icon">&#8594;</span></button>
                 </form>
             </div>
         </div>
