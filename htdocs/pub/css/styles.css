@@ -29,6 +29,10 @@ textarea {
 
 /* main styles */
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /*-- container */
 .main-container {
     display: grid;
