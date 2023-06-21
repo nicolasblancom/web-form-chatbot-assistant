@@ -13,7 +13,6 @@ function submitForm() {
     const messageText = messageInput.value;
     if (!messageText) return;
 
-    messageInput.value = "";
     updateContextToAppend('user', messageText);
     appendMessageToUi('user', messageText);
     sendMessage(contextAppend);
@@ -43,6 +42,10 @@ function updateContextToAppend(role, message) {
     });
 }
 
+function cleanmessageInput() {
+    messageInput.value = '';
+}
+
 function sendMessage(contextAppend) {
     var formData = new FormData();
     formData.append('contextAppend', JSON.stringify(contextAppend));
@@ -55,6 +58,7 @@ function sendMessage(contextAppend) {
         .then(res => {
             updateContextToAppend(res.role, res.content);
             appendMessageToUi(res.role, res.content);
+            cleanmessageInput();
         })
         .catch(err => console.log('Solicitud fallida', err));
 }
