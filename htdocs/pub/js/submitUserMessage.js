@@ -1,3 +1,4 @@
+const messageBox = document.querySelector('#messages');
 const form = document.querySelector('#messageForm');
 const messageInput = document.querySelector('#messageFromUser');
 const contextAppend = [];
@@ -46,6 +47,10 @@ function cleanmessageInput() {
     messageInput.value = '';
 }
 
+function scrollDownMessagesBox() {
+    messageBox.scrollTop = messageBox.scrollHeight;
+}
+
 function sendMessage(contextAppend) {
     var formData = new FormData();
     formData.append('contextAppend', JSON.stringify(contextAppend));
@@ -59,6 +64,7 @@ function sendMessage(contextAppend) {
             updateContextToAppend(res.role, res.content);
             appendMessageToUi(res.role, res.content);
             cleanmessageInput();
+            scrollDownMessagesBox();
         })
         .catch(err => console.log('Solicitud fallida', err));
 }
