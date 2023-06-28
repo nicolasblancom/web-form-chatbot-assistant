@@ -43,3 +43,16 @@ If you want to use helper start/stop scripts just execute from `devilbox` dir:
 ## Usage
 
 Visit `http://webformchatbot.loc` or whatever domain you have set in `/etc/hosts`
+
+You will see a typical chat interface where you can write something in the input that is at the bottom of the screen,
+and the chat messages will appear on top.
+
+The prompt needs some tweaks, but it makes the job: it will ask some questions to find out what services you need 
+of a hypothetical company that offers web services as ecommerce web development. It will try to find it out as in the prompt
+it has been provided with a list of services and instructions.
+
+Once the conversation has lead it to fulfill all the answers, it will try to end the conversation.
+
+## TODOs
+
+- [ ] Create a file with a summary of the users need
