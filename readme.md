@@ -42,6 +42,10 @@ If you want to use helper start/stop scripts just execute from `devilbox` dir:
 
 ## Usage
 
+Enter the container with `./shell.sh` from devilbox dir.
+
+Change to the project with `cd webformchatbot/htdocs` and install composer dependencies with `composer install`.
+
 Visit `http://webformchatbot.loc` or whatever domain you have set in `/etc/hosts`
 
 You will see a typical chat interface where you can write something in the input that is at the bottom of the screen,
